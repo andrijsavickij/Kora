@@ -10,8 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kora">
         <activity
+            android:name=".CreateEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginRegistActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
