@@ -13,16 +13,15 @@
             android:name=".CreateEditActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginRegistActivity"
-            android:exported="false"
-            android:screenOrientation="fullSensor" />
-        <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor"/>
+        <activity
+            android:name=".LoginActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
