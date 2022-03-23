@@ -1,6 +1,5 @@
 package com.andrj.kora
 
-import android.R
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
@@ -32,11 +31,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun choose(){
-        Toast.makeText(applicationContext, "choose", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "choose", Toast.LENGTH_LONG).show()
 
         val constraintLayout = ConstraintLayout(this)
         val imageView = ImageView(this)
-        imageView.setImageResource(R.drawable.login)//TODO wtf not found??
+        imageView.setImageResource(R.drawable.login)
 
         val layoutParams = ConstraintLayout.LayoutParams(
             ConstraintLayout.LayoutParams.WRAP_CONTENT,
@@ -52,16 +51,16 @@ class LoginActivity : AppCompatActivity() {
 
     }
     fun phone(){
-        Toast.makeText(applicationContext, "phone", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "phone", Toast.LENGTH_LONG).show()
     }
     fun book(){
-        Toast.makeText(applicationContext, "book", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "book", Toast.LENGTH_LONG).show()
     }
     fun google(){
-        Toast.makeText(applicationContext, "google", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "google", Toast.LENGTH_LONG).show()
     }
     fun data(){
-        Toast.makeText(applicationContext, "data", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "data", Toast.LENGTH_LONG).show()
     }
 
     enum class Status {CHOOSE, PHONE, BOOK, GOOGLE, DADA}

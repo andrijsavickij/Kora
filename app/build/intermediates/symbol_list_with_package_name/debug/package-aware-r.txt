@@ -2605,10 +2605,6 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id button
-id button2
-id button3
-id button4
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2725,7 +2721,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id immediateStop
 id included
 id info
