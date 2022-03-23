@@ -1,8 +1,12 @@
 package com.andrj.kora
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -29,6 +33,23 @@ class LoginActivity : AppCompatActivity() {
 
     fun choose(){
         Toast.makeText(applicationContext, "choose", Toast.LENGTH_SHORT).show()
+
+        val constraintLayout = ConstraintLayout(this)
+        val imageView = ImageView(this)
+        imageView.setImageResource(R.drawable.login)//TODO wtf not found??
+
+        val layoutParams = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.WRAP_CONTENT,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+        layoutParams.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID
+        layoutParams.topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+        imageView.setLayoutParams(layoutParams)
+        constraintLayout.addView(imageView)
+
+        setContentView(constraintLayout)
+
+
     }
     fun phone(){
         Toast.makeText(applicationContext, "phone", Toast.LENGTH_SHORT).show()

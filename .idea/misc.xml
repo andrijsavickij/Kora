@@ -5,28 +5,10 @@
       <map>
         <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.194" />
         <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/drawable/ic_launcher_background.xml" value="0.194" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment-main/main_screen.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/aaaa.xml" value="0.3111111111111111" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/login_data.xml" value="0.3111111111111111" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/login_phone.xml" value="0.3111111111111111" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_data.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_phone.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_phone_data.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_phone_number.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_phone_pass.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_phone_regist.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_pick.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout-fragment/logreg_registration.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/activity_create_edit.xml" value="0.16875" />
         <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/activity_login_regist.xml" value="0.2675925925925926" />
         <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/activity_main.xml" value="0.29259259259259257" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/fragment_blank.xml" value="0.2675925925925926" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/login_data.xml" value="0.33" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/login_phone.xml" value="0.33" />
-        <entry key="..\:/@dmin/Project/JAVA/Android/Kora/app/src/main/res/layout/login_registration.xml" value="0.5" />
         <entry key="..\:/admin/Android/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/admin/Android/app/src/main/res/layout/login_registration.xml" value="0.2234375" />
       </map>
     </option>
   </component>
