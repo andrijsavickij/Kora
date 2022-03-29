@@ -104,6 +104,18 @@ class LoginActivity : AppCompatActivity() {
                 list.addView(edit)
                 list.addView(butt)
 
+                butt.setOnClickListener{
+                    //some magic with verification phone
+                    //to|do save user info
+                    edit.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                    butt.text = "Далі"
+                    butt.setOnClickListener{
+                        status = Status.DADA
+                        setViews()
+                    }
+                }
+
+
             }
             Status.DADA -> {
                 /*TODO del it*/Toast.makeText(applicationContext, "data", Toast.LENGTH_SHORT).show()
