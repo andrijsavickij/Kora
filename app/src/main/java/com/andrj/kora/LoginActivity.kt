@@ -2,16 +2,16 @@ package com.andrj.kora
 
 import android.os.Bundle
 import android.text.InputType
-import android.util.DisplayMetrics
 import android.view.Gravity
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 
 
 class LoginActivity : AppCompatActivity() {
 
+//когда буду делать стиль, нужно будет немного переформатировать(
     private var status: Status? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
     private fun setViews(){
         val list: LinearLayout = findViewById(R.id.logVL)
         list.removeAllViews();
+        val WIDTH = dp(300)
         when (status){
             Status.CHOOSE -> {
                 //Toast.makeText(applicationContext, "choose", Toast.LENGTH_SHORT).show()
@@ -52,9 +53,9 @@ class LoginActivity : AppCompatActivity() {
                 linear.addView(buttGoogle)
                 linear.addView(buttPhone)
 
-                imageView.setPadding(0,0,0,todp(50))
-                text.setPadding(0,0,0,todp(50))
-                linear.setPadding(0,0,0,todp(50))
+                imageView.setPadding(0,0,0,dp(50))
+                text.setPadding(0,0,0,dp(50))
+                linear.setPadding(0,0,0,dp(50))
                 list.addView(imageView)
                 list.addView(text)
                 list.addView(linear)
@@ -85,21 +86,21 @@ class LoginActivity : AppCompatActivity() {
 
                 val edit = EditText(this)
                 edit.inputType = InputType.TYPE_CLASS_PHONE
-                edit.width = todp(150)
+                edit.width = WIDTH
                 edit.gravity = Gravity.CENTER
-                edit.height = todp(15)
+                edit.height = dp(15)
 
                 val butt = Button(this)
-                butt.width = todp(150)
+                butt.width = WIDTH
                 //butt.gravity = Gravity.CENTER
                 butt.text = "Верефікувати"
                 butt.textSize = 15f
-                butt.height = todp(15)
+                butt.height = dp(15)
 
-                imageView.setPadding(0,0,0,todp(10))
-                text.setPadding(0,0,0,todp(30))
-                edit.setPadding(0,0,0,todp(30))
-                butt.setPadding(0,0,0,todp(10))
+                imageView.setPadding(0,0,0,dp(10))
+                text.setPadding(0,0,0,dp(30))
+                edit.setPadding(0,0,0,dp(30))
+                butt.setPadding(0,0,0,dp(10))
                 list.addView(imageView)
                 list.addView(text)
                 list.addView(edit)
@@ -122,62 +123,67 @@ class LoginActivity : AppCompatActivity() {
             Status.DADA -> {
                 //Toast.makeText(applicationContext, "data", Toast.LENGTH_SHORT).show()
 
-                val nameW = TextView(this)
-                val surnameW = TextView(this)
-                val cityW = TextView(this)
-                nameW.width         = todp(150)
-                surnameW.width      = todp(150)
-                cityW.width         = todp(150)
+                val name        = EditText(this)
+                val nameW       = TextView(this)
+                val surname     = EditText(this)
+                val surnameW    = TextView(this)
+                val city        = EditText(this)
+                val cityW       = TextView(this)
+
+                nameW.width         = WIDTH
+                surnameW.width      = WIDTH
+                cityW.width         = WIDTH
                 nameW.gravity       = Gravity.LEFT
                 surnameW.gravity    = Gravity.LEFT
                 cityW.gravity       = Gravity.LEFT
-                nameW.height        = todp(9)
-                surnameW.height     = todp(9)
-                cityW.height        = todp(9)
+                nameW.textSize      = 12f
+                surnameW.textSize   = 12f
+                cityW.textSize      = 12f
                 nameW.text          = "Поле не повинно бути порожнім або містити цифри"
                 surnameW.text       = "Поле не повинно бути порожнім або містити цифри"
                 cityW.text          = "Поле не повинно бути порожнім"
-                nameW.isVisible     = false
-                surnameW.isVisible  = false
-                cityW.isVisible     = false
+                nameW.visibility    = View.INVISIBLE
+                surnameW.visibility = View.INVISIBLE
+                cityW.visibility    = View.INVISIBLE
 
-                val name = EditText(this)
-                name.inputType = InputType.TYPE_CLASS_TEXT
-                name.width = todp(150)
-                name.gravity = Gravity.CENTER
-                name.height = todp(15)
-                name.hint = "Ім'я"
-                val surname = EditText(this)
-                surname.inputType = InputType.TYPE_CLASS_TEXT
-                surname.width = todp(150)
-                surname.gravity = Gravity.CENTER
-                surname.height = todp(15)
-                surname.hint = "Прізвище"
-                val city = EditText(this)
-                city.inputType = InputType.TYPE_CLASS_TEXT
-                city.width = todp(150)
-                city.gravity = Gravity.CENTER
-                city.height = todp(15)
-                city.hint = "Місто"
+                //name.inputType      = InputType.TYPE_CLASS_TEXT
+                //surname.inputType   = InputType.TYPE_CLASS_TEXT
+                //city.inputType      = InputType.TYPE_CLASS_TEXT
+                name.width          = WIDTH
+                surname.width       = WIDTH
+                city.width          = WIDTH
+                name.gravity        = Gravity.LEFT
+                surname.gravity     = Gravity.LEFT
+                city.gravity        = Gravity.LEFT
+                name.height         = dp(15)
+                surname.height      = dp(15)
+                city.height         = dp(15)
+                name.hint           = "Ім'я"
+                surname.hint        = "Прізвище"
+                city.hint           = "Місто"
+
 
                 val butt = Button(this)
-                butt.width = todp(150)
+                //butt.width = todp(150)
                 //butt.gravity = Gravity.CENTER
                 butt.textSize = 15f
-                butt.height = todp(15)
+                butt.height = dp(15)
                 butt.text = "Далі"
                 butt.setOnClickListener{
                     //to|do save user info
 
+                    nameW.visibility    = View.VISIBLE
+                    surnameW.visibility = View.VISIBLE
+                    cityW.visibility    = View.VISIBLE
                 }
 
-                name.setPadding(0,0,0,todp(1))
-                nameW.setPadding(0,0,0,todp(30))
-                surname.setPadding(0,0,0,todp(1))
-                surnameW.setPadding(0,0,0,todp(30))
-                city.setPadding(0,0,0,todp(1))
-                cityW.setPadding(0,0,0,todp(30))
-                butt.setPadding(0,todp(40),0,todp(10))
+                name.setPadding     (0,0,0,dp(1))
+                nameW.setPadding    (0,0,0,dp(15))
+                surname.setPadding  (0,0,0,dp(1))
+                surnameW.setPadding (0,0,0,dp(15))
+                city.setPadding     (0,0,0,dp(1))
+                cityW.setPadding    (0,0,0,dp(15))
+                butt.setPadding     (0,dp(40),0,dp(10))
 
                 list.addView(name)
                 list.addView(nameW)
@@ -205,7 +211,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    private fun todp(px: Int): Int {
+    private fun dp(px: Int): Int {
         return (px * resources.displayMetrics.density + 0.5f).toInt()
     }
     enum class Status {CHOOSE, PHONE, BOOK, GOOGLE, DADA}
