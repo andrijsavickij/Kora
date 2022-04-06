@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="background">#252323</color>
     <color name="black">#FF000000</color>
+    <color name="buttonBackground">#0CCDE6</color>
+    <color name="error">#E80909</color>
+    <color name="liteGrey">#2B2B2B</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="text">@color/white</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FFD600</color>
     <string name="app_name">Kora</string>
-    <style name="Theme.Kora" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Base" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -20,5 +26,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.Kora" parent="Base">
+        <item name="android:background">@color/background</item>
+        <item name="android:colorButtonNormal">@color/buttonBackground</item> // for button
+        <item name="android:checkedButton">@color/buttonBackground</item>
+        <item name="android:textColor">@color/text</item>
     </style>
 </resources>
