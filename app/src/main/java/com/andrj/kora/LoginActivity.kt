@@ -1,17 +1,19 @@
 package com.andrj.kora
 
+import android.content.Context
 import android.os.Bundle
+import android.os.Message
 import android.text.InputType
 import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 
 
 class LoginActivity : AppCompatActivity() {
 
-//когда буду делать стиль, нужно будет немного переформатировать(
     private var status: Status? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,6 +85,8 @@ class LoginActivity : AppCompatActivity() {
                 text.text = "Вхід"
                 text.textSize = 30f;
                 text.gravity = Gravity.CENTER
+
+
 
                 val edit = EditText(this)
                 edit.inputType = InputType.TYPE_CLASS_PHONE
@@ -215,6 +219,41 @@ class LoginActivity : AppCompatActivity() {
         return (px * resources.displayMetrics.density + 0.5f).toInt()
     }
     enum class Status {CHOOSE, PHONE, BOOK, GOOGLE, DADA}
+}
+
+class EditTextView(context: Context, WIDTH_dp: Int, inputType: Int, hint: String,errorMessage: String) : LinearLayout(context){
+    val edit    = EditText(context)
+    val error   = TextView(context)
+
+    val WIDTH = WIDTH_dp
+    init{
+        this.setLayoutParams( LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+        this.addView(edit)
+        this.addView(error)
+        edit.width  = WIDTH
+        error.width = WIDTH
+        error.gravity = Gravity.LEFT
+        edit.gravity = Gravity.LEFT
+        edit.inputType = inputType
+        edit.hint = hint
+        error.setPadding(0,dp(1),0,0)
+        error.text = errorMessage
+    }
+
+    fun setWidthToAll(width_dp: Int){
+        edit.width  = width_dp
+        error.width = width_dp
+    }
+
+    fun switchError(){
+        if(error.isVisible) error.visibility = View.INVISIBLE
+        else error.visibility = View.VISIBLE
+    }
+
+
+    private fun dp(px: Int): Int {
+        return (px * resources.displayMetrics.density + 0.5f).toInt()
+    }
 }
 
 

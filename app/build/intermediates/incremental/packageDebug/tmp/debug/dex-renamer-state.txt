@@ -1,4 +1,4 @@
-#Wed Apr 06 14:39:50 EEST 2022
+#Fri Apr 08 14:07:53 EEST 2022
 base.2=D\:\\admin\\Android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
 path.2=5/classes.dex
 base.1=D\:\\admin\\Android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

@@ -16,6 +16,7 @@
         <item name="android:colorButtonNormal">@color/buttonBackground</item> // for button
         <item name="android:checkedButton">@color/buttonBackground</item>
         <item name="android:textColor">@color/text</item>
+        <item name="android:editTextColor">@color/text</item>
     </style></file><file path="D:\admin\Android\app\src\main\res\values-night\themes.xml" qualifiers="night-v8"><style name="Base.night" parent="Base">
         
         <item name="colorPrimary">@color/purple_200</item>
