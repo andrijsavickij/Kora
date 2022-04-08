@@ -1,6 +1,7 @@
 package com.andrj.kora
 
 import android.content.Context
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.os.Message
 import android.text.InputType
@@ -8,8 +9,10 @@ import android.view.Gravity
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.viewpager2.widget.ViewPager2
 
 
 class LoginActivity : AppCompatActivity() {
@@ -30,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setViews(){
         val list: LinearLayout = findViewById(R.id.logVL)
-        list.removeAllViews();
+        list.removeAllViews()
         val WIDTH = dp(300)
         when (status){
             Status.CHOOSE -> {
@@ -38,9 +41,9 @@ class LoginActivity : AppCompatActivity() {
                 val imageView = ImageView(this)
                 imageView.setImageResource(R.drawable.login)
 
-                val text = TextView(this);
+                val text = TextView(this)
                 text.text = "Вхід"
-                text.textSize = 20f;
+                text.textSize = 20f
                 text.gravity = Gravity.CENTER
 
                 val buttPhone = Button(this)
@@ -81,18 +84,12 @@ class LoginActivity : AppCompatActivity() {
                 val imageView = ImageView(this)
                 imageView.setImageResource(R.drawable.login)
 
-                val text = TextView(this);
+                val text = TextView(this)
                 text.text = "Вхід"
-                text.textSize = 30f;
+                text.textSize = 30f
                 text.gravity = Gravity.CENTER
 
-
-
-                val edit = EditText(this)
-                edit.inputType = InputType.TYPE_CLASS_PHONE
-                edit.width = WIDTH
-                edit.gravity = Gravity.CENTER
-                edit.height = dp(15)
+                val edit = EditTextView(this,WIDTH,InputType.TYPE_CLASS_PHONE,"","номер не дійсний")
 
                 val butt = Button(this)
                 butt.width = WIDTH
@@ -103,7 +100,7 @@ class LoginActivity : AppCompatActivity() {
 
                 imageView.setPadding(0,0,0,dp(10))
                 text.setPadding(0,0,0,dp(30))
-                edit.setPadding(0,0,0,dp(30))
+                edit.setPadding(0,0,0,dp(5))
                 butt.setPadding(0,0,0,dp(10))
                 list.addView(imageView)
                 list.addView(text)
@@ -113,7 +110,9 @@ class LoginActivity : AppCompatActivity() {
                 butt.setOnClickListener{
                     //some magic with verification phone
                     //to|do save user info
-                    edit.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                    edit.switchError()
+                    edit.edit.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+                    edit.error.text = "пароль не має містити цифри та пробіли"
                     butt.text = "Далі"
                     butt.setOnClickListener{
                         //to|do save user info
@@ -127,74 +126,25 @@ class LoginActivity : AppCompatActivity() {
             Status.DADA -> {
                 //Toast.makeText(applicationContext, "data", Toast.LENGTH_SHORT).show()
 
-                val name        = EditText(this)
-                val nameW       = TextView(this)
-                val surname     = EditText(this)
-                val surnameW    = TextView(this)
-                val city        = EditText(this)
-                val cityW       = TextView(this)
-
-                nameW.width         = WIDTH
-                surnameW.width      = WIDTH
-                cityW.width         = WIDTH
-                nameW.gravity       = Gravity.LEFT
-                surnameW.gravity    = Gravity.LEFT
-                cityW.gravity       = Gravity.LEFT
-                nameW.textSize      = 12f
-                surnameW.textSize   = 12f
-                cityW.textSize      = 12f
-                nameW.text          = "Поле не повинно бути порожнім або містити цифри"
-                surnameW.text       = "Поле не повинно бути порожнім або містити цифри"
-                cityW.text          = "Поле не повинно бути порожнім"
-                nameW.visibility    = View.INVISIBLE
-                surnameW.visibility = View.INVISIBLE
-                cityW.visibility    = View.INVISIBLE
-
-                //name.inputType      = InputType.TYPE_CLASS_TEXT
-                //surname.inputType   = InputType.TYPE_CLASS_TEXT
-                //city.inputType      = InputType.TYPE_CLASS_TEXT
-                name.width          = WIDTH
-                surname.width       = WIDTH
-                city.width          = WIDTH
-                name.gravity        = Gravity.LEFT
-                surname.gravity     = Gravity.LEFT
-                city.gravity        = Gravity.LEFT
-                name.height         = dp(15)
-                surname.height      = dp(15)
-                city.height         = dp(15)
-                name.hint           = "Ім'я"
-                surname.hint        = "Прізвище"
-                city.hint           = "Місто"
-
+                val name    = EditTextView(this,WIDTH,InputType.TYPE_CLASS_TEXT,"Ім'я","Поле не повинно бути порожнім або містити цифри")
+                val surname = EditTextView(this,WIDTH,InputType.TYPE_CLASS_TEXT,"Прізвище","Поле не повинно бути порожнім або містити цифри")
+                val city    = EditTextView(this,WIDTH,InputType.TYPE_CLASS_TEXT,"Місто","Поле не повинно бути порожнім")
 
                 val butt = Button(this)
-                //butt.width = todp(150)
-                //butt.gravity = Gravity.CENTER
+
                 butt.textSize = 15f
                 butt.height = dp(15)
                 butt.text = "Далі"
                 butt.setOnClickListener{
                     //to|do save user info
-
-                    nameW.visibility    = View.VISIBLE
-                    surnameW.visibility = View.VISIBLE
-                    cityW.visibility    = View.VISIBLE
+                    name.switchError()
+                    //surname.switchError()
+                    city.switchError()
                 }
 
-                name.setPadding     (0,0,0,dp(1))
-                nameW.setPadding    (0,0,0,dp(15))
-                surname.setPadding  (0,0,0,dp(1))
-                surnameW.setPadding (0,0,0,dp(15))
-                city.setPadding     (0,0,0,dp(1))
-                cityW.setPadding    (0,0,0,dp(15))
-                butt.setPadding     (0,dp(40),0,dp(10))
-
                 list.addView(name)
-                list.addView(nameW)
                 list.addView(surname)
-                list.addView(surnameW)
                 list.addView(city)
-                list.addView(cityW)
                 list.addView(butt)
 
             }
@@ -227,33 +177,35 @@ class EditTextView(context: Context, WIDTH_dp: Int, inputType: Int, hint: String
 
     val WIDTH = WIDTH_dp
     init{
+        this.setOrientation(VERTICAL)
         this.setLayoutParams( LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         this.addView(edit)
         this.addView(error)
         edit.width  = WIDTH
         error.width = WIDTH
-        error.gravity = Gravity.LEFT
-        edit.gravity = Gravity.LEFT
+        error.gravity = Gravity.START
+        edit.gravity = Gravity.START
         edit.inputType = inputType
         edit.hint = hint
-        error.setPadding(0,dp(1),0,0)
         error.text = errorMessage
+        error.visibility = View.INVISIBLE
+
+        error.textSize = 1f
+        error.setTextColor(ContextCompat.getColor(context, R.color.error))
+        edit.setHintTextColor(ContextCompat.getColor(context, R.color.text))
     }
 
-    fun setWidthToAll(width_dp: Int){
-        edit.width  = width_dp
-        error.width = width_dp
-    }
+//    fun setWidthToAll(width_dp: Int){
+//        edit.width  = width_dp
+//        error.width = width_dp
+//    }
 
     fun switchError(){
+        error.textSize = 14f
         if(error.isVisible) error.visibility = View.INVISIBLE
         else error.visibility = View.VISIBLE
     }
 
-
-    private fun dp(px: Int): Int {
-        return (px * resources.displayMetrics.density + 0.5f).toInt()
-    }
 }
 
 
